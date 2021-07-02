@@ -54,3 +54,28 @@ _Constraints:_
 `
 -10^4 <= x^n <= 10^4
 `
+
+
+# Solution in JavaScript
+```
+var myPow = function(x, n) {
+    let result = 1, isReady = true;
+    if (n === 0 || x === 1) return 1;
+    
+    if (x === -1 && n % 2 === 0) return 1;
+    
+    if (x === -1 && n % 2 === 1) return -1;
+    
+    if (n < 0) {
+        n = -n;
+        isReady = false;
+    }
+    
+    while (n > 0) {
+        result *= x;
+        n--;
+    }
+    
+    return isReady ? result : (1 / result);
+};
+```
